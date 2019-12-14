@@ -18,11 +18,11 @@ function Xing(props) {
   function buildLink() {
     let check_box = document.getElementById('checkJob')
     setLink("http://www.google.com/search?q=site:xing.com/profile/"
-            + (job.length > 0 ? " intitle:" : "")
+            + (job ? " intitle:" : "")
             + (check_box.checked ? "~" : "")
-            + (job.length > 0 ? "\"" + job + "\"" : "")
-            + (include.length > 0 ? "+\"" + include + "\"" : "")
-            + (exclude.length > 0 ? "-\"" + exclude + "\"" : "")
+            + (job ? "\"" + job + "\"" : "")
+            + (include ? "+\"" + include + "\"" : "")
+            + (exclude ? "-\"" + exclude + "\"" : "")
             )          
   }
 
@@ -34,7 +34,7 @@ function Xing(props) {
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">The job title of candidates you are searching for e.g. marketing manager. 'Show similar jobs' finds synonyms e.g. checking this box for marketing returns media specialists</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
           </OverlayTrigger>
-          <Form.Control className="field__control" value={job} onChange={v => setJob(v.currentTarget.value)} placeholder="E.g. accountant OR cfo" />
+          <Form.Control className="field__control"  onChange={v => setJob(v.currentTarget.value.trim())} placeholder="E.g. accountant OR cfo" />
           <Form.Check type="checkbox" label="Show similar jobs?" id='checkJob' />
         </Form.Group>
 
@@ -43,7 +43,7 @@ function Xing(props) {
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled" required>Add comma separated keywords or phrases to refine your search e.g. keywords like javascript, HTML or a phrase like Ruby on Rails. Adding more keywords makes your search narrower</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
           </OverlayTrigger>
-          <Form.Control className="field__control" value={include} onChange={v => setInclude(v.currentTarget.value)} placeholder="E.g. Engineer, Berlin" />
+          <Form.Control className="field__control" onChange={v => setInclude(v.currentTarget.value.trim())} placeholder="E.g. Engineer, Berlin" />
         </Form.Group>
       </Form.Row>
 
@@ -53,7 +53,7 @@ function Xing(props) {
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Anything you don't want e.g. adding senior here would help you find junior candidates. Separate each keyword or phrase with a comma. Excluding more keywords makes your search narrower</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
           </OverlayTrigger>
-          <Form.Control className="field__control" value={exclude} onChange={v => setExclude(v.currentTarget.value)} placeholder="E.g. Junior" />
+          <Form.Control className="field__control" onChange={v => setExclude(v.currentTarget.value.trim())} placeholder="E.g. Junior" />
         </Form.Group>
       </Form.Row>
 

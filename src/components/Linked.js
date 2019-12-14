@@ -18,18 +18,19 @@ function LinkedIn (props){
     buildLink();
   }
 
+
   function buildLink(){
     setLink("http://www.google.com/search?q="
-            + (job.length > 0 ? "+\"" + job + "\"" : "")
-            + (include.length > 0 ? "+\"" + include +"\"" : "")
-						+ (exclude.length > 0 ? " -\"" + exclude +"\"" : "")
+            + (job ? "+\"" + job + "\"" : "")
+            + (include ? "+\"" + include +"\"" : "")
+						+ (exclude ? " -\"" + exclude +"\"" : "")
  						+ " -intitle:\"profiles\" -inurl:\"dir/+\"+site:"
 						+ (country === 'all' ? "" : country + ".")
 						+ "linkedin.com/in/+OR+site:"
 						+ (country === 'all' ? "" : country + ".")
 						+ "linkedin.com/pub/"
 						+ (education === 'all' ? "" : "&as_oq=" + education)
-						+ (emloyer.length > 0 ? "+\"Current+%2A+"+emloyer+"+%2A+\"" : "")
+						+ (emloyer ? "+\"Current+%2A+"+emloyer+"+%2A+\"" : "")
             );
   }
 
@@ -52,7 +53,7 @@ function LinkedIn (props){
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled" required>The job title of candidates you are searching for e.g. marketing manager. 'Show similar jobs' finds synonyms e.g. checking this box for marketing returns media specialists</Tooltip>}>
             <span className="float-right"><FaQuestionCircle/></span>
           </OverlayTrigger>
-          <Form.Control value={job} onChange={v => setJob(v.currentTarget.value)} placeholder="E.g. accountant OR cfo" />
+          <Form.Control  onChange={v => setJob(v.currentTarget.value.trim())} placeholder="E.g. accountant OR cfo" />
           <Form.Check type="checkbox" label="Show similar jobs?" />
         </Form.Group>
       </Form.Row>
@@ -63,7 +64,7 @@ function LinkedIn (props){
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Add comma separated keywords or phrases to refine your search e.g. keywords like SEO, HTML or a phrase like Managing Director. Adding more keywords makes your search narrower</Tooltip>}>
             <span className="float-right"><FaQuestionCircle/></span>
           </OverlayTrigger>
-          <Form.Control value={include} onChange={v => setInclude(v.currentTarget.value)} placeholder="E.g. London OR Paris AND HTML" />
+          <Form.Control onChange={v => setInclude(v.currentTarget.value.trim())} placeholder="E.g. London OR Paris AND HTML" />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridJob_title">
@@ -71,7 +72,7 @@ function LinkedIn (props){
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Anything you don't want e.g. adding senior here would help you find junior candidates. Separate each keyword or phrase with a comma. Excluding more keywords makes your search narrower</Tooltip>}>
             <span className="float-right"><FaQuestionCircle/></span>
           </OverlayTrigger>
-          <Form.Control value={exclude} onChange={v => setExclude(v.currentTarget.value)} placeholder="E.g. assistant OR secretary" />
+          <Form.Control onChange={v => setExclude(v.currentTarget.value.trim())} placeholder="E.g. assistant OR secretary" />
         </Form.Group>
       </Form.Row>
 
@@ -94,7 +95,7 @@ function LinkedIn (props){
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">The employer the candidate is currently working for</Tooltip>}>
             <span className="float-right"><FaQuestionCircle/></span>
           </OverlayTrigger>
-          <Form.Control value={emloyer} onChange={v => setEmployer(v.currentTarget.value)} placeholder="E.g. Paypal"/>
+          <Form.Control onChange={v => setEmployer(v.currentTarget.value.trim())} placeholder="E.g. Paypal"/>
         </Form.Group>
       </Form.Row>
       <MyModal link={link}  socName="LinkedIn"  type="submit" ></MyModal>

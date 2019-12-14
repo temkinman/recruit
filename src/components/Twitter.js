@@ -17,9 +17,9 @@ function Twitter(props) {
 
   function buildLink() {
     setLink("http://www.google.com/search?q=site:twitter.com -inurl:(search|favorites|status|statuses|jobs) -intitle:(job|jobs) -recruiter -HR -careers"
-      + (include.length > 0 ? "+\"" + include + "\"" : "")
-      + (country.length > 0 ? "+\"" + country + "\"" : "")
-      + (exclude.length > 0 ? "-\"" + exclude + "\"" : "")
+      + (include ? "+\"" + include + "\"" : "")
+      + (country ? "+\"" + country + "\"" : "")
+      + (exclude ? "-\"" + exclude + "\"" : "")
         );
   }
 
@@ -31,7 +31,7 @@ function Twitter(props) {
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">The ideal location of your candidates. For best results use a city e.g. London, New York, Zurich etc"</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
           </OverlayTrigger>
-          <Form.Control className="field__control" value={country} onChange={v => setCountry(v.currentTarget.value)} placeholder="E.g. New York or London" />
+          <Form.Control className="field__control" onChange={v => setCountry(v.currentTarget.value.trim())} placeholder="E.g. New York or London" />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridJob_title">
@@ -39,7 +39,7 @@ function Twitter(props) {
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled" required>Add comma separated keywords or phrases to refine your search e.g. keywords like javascript, HTML or a phrase like Ruby on Rails. Adding more keywords makes your search narrower</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
           </OverlayTrigger>
-          <Form.Control className="field__control" value={include} onChange={v => setInclude(v.currentTarget.value)} placeholder="E.g. PHP, Ruby, Linux" />
+          <Form.Control className="field__control" onChange={v => setInclude(v.currentTarget.value.trim())} placeholder="E.g. PHP, Ruby, Linux" />
         </Form.Group>
       </Form.Row>
 
@@ -49,7 +49,7 @@ function Twitter(props) {
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Any keyword here will not appear in your search. For example to show only web designers 'Illustrator' wil filter out general graphic designers</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
           </OverlayTrigger>
-          <Form.Control className="field__control" value={exclude} onChange={v => setExclude(v.currentTarget.value)} placeholder="E.g. Illustrator" />
+          <Form.Control className="field__control" onChange={v => setExclude(v.currentTarget.value.trim())} placeholder="E.g. Illustrator" />
         </Form.Group>
       </Form.Row>
 
