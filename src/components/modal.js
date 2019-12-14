@@ -43,10 +43,10 @@ function MyModal (props) {
             <Form.Control as="input" value = {props.link} readOnly={true} id="result_link"></Form.Control>
           </Modal.Body>
           <Modal.Footer className="justify-content-center">
-            <Button variant="outline-secondary" onClick={copy_url} disabled={disabled} className="btn btn-res" id='copy'>
+            <Button variant="outline-secondary" onClick={copy_url} disabled={disabled} className="btn-res" id='copy'>
               Copy URL
             </Button>
-            <Button variant="success" onClick={handleClose} className="btn btn-res" target="_blank" id="search" href={props.link}>
+            <Button variant="success" onClick={handleClose} className="btn-res" target="_blank" id="search" href={props.link}>
               Open in Google
             </Button>
           </Modal.Footer>
