@@ -18,9 +18,10 @@ function LinkedIn (props){
     buildLink();
   }
 
-
   function buildLink(){
+    let check_box = document.getElementById('checkJob')
     setLink("http://www.google.com/search?q="
+            + (check_box.checked ? "~" : "")
             + (job ? "+\"" + job + "\"" : "")
             + (include ? "+\"" + include +"\"" : "")
 						+ (exclude ? " -\"" + exclude +"\"" : "")
@@ -54,7 +55,7 @@ function LinkedIn (props){
             <span className="float-right"><FaQuestionCircle/></span>
           </OverlayTrigger>
           <Form.Control  onChange={v => setJob(v.currentTarget.value.trim())} placeholder="E.g. accountant OR cfo" />
-          <Form.Check type="checkbox" label="Show similar jobs?" />
+          <Form.Check type="checkbox" label="Show similar jobs?" id="checkJob" />
         </Form.Group>
       </Form.Row>
 

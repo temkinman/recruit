@@ -1,0 +1,29 @@
+[33mcommit 9fe58fecf073c10d4fc826d3c009d0e889c45992[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: admin <temkinlucky@gmail.com>
+Date:   Sun Dec 15 08:58:25 2019 +0300
+
+    add adaptive design
+
+[33mcommit 39743fc71b47b0ad9282cabbf9ebd180faec488e[m
+Author: admin <temkinlucky@gmail.com>
+Date:   Sat Dec 14 21:57:54 2019 +0300
+
+    fixed input
+
+[33mcommit b5d09cac3f0bcc0af19f3c5a585dccdbda026031[m
+Author: admin <temkinlucky@gmail.com>
+Date:   Sat Dec 14 19:12:54 2019 +0300
+
+    dell class btn in button
+
+[33mcommit 63828e418d855d50429e135907d8971dc9bdb549[m
+Author: admin <temkinlucky@gmail.com>
+Date:   Sat Dec 14 18:55:37 2019 +0300
+
+    first commit
+
+[33mcommit 9f1bc4f9c89981196bb7f51f018d782c25894259[m
+Author: admin <temkinlucky@gmail.com>
+Date:   Thu Dec 5 16:24:36 2019 +0300
+
+    Initial commit from Create React App
