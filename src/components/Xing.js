@@ -29,7 +29,7 @@ function Xing(props) {
   return (
     <Form className="mt-4" onSubmit={handleSubmit}>
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridEmail">
+        <Form.Group as={Col} controlId="formGridEmail" className="col">
           <Form.Label>Job title</Form.Label>
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">The job title of candidates you are searching for e.g. marketing manager. 'Show similar jobs' finds synonyms e.g. checking this box for marketing returns media specialists</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
@@ -38,7 +38,7 @@ function Xing(props) {
           <Form.Check type="checkbox" label="Show similar jobs?" id='checkJob' />
         </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridJob_title">
+        <Form.Group as={Col} controlId="formGridJob_title" className="col">
           <Form.Label>location or keywords <strong>include</strong></Form.Label>
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled" required>Add comma separated keywords or phrases to refine your search e.g. keywords like javascript, HTML or a phrase like Ruby on Rails. Adding more keywords makes your search narrower</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>
@@ -48,7 +48,7 @@ function Xing(props) {
       </Form.Row>
 
       <Form.Row>
-        <Form.Group as={Col} controlId="formGridLocation" className="oneInput">
+        <Form.Group as={Col} controlId="formGridLocation" className="oneInput col">
           <Form.Label>Keywords to <strong>exclude</strong></Form.Label>
           <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Anything you don't want e.g. adding senior here would help you find junior candidates. Separate each keyword or phrase with a comma. Excluding more keywords makes your search narrower</Tooltip>}>
             <span className="float-right"><FaQuestionCircle /></span>

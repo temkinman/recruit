@@ -28,3 +28,17 @@
     width: 98%;
   }
 } 
+
+@media (min-width: 800px) {
+  .grid__col {
+      width: 50%;
+  }
+}
+@media (max-width: 600px){
+  .col {
+    flex-basis: unset !important;
+  }
+  .oneInput {
+    max-width: 100% !important;
+  }
+}
